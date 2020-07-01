@@ -22,6 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+import sys
 import ubinascii
 import uhashlib
 import ure
@@ -29,6 +30,7 @@ import argparse
 import os
 import os.path
 import glob
+import shutil
 from collections import defaultdict
 from pprint import pprint
 
@@ -146,6 +148,10 @@ def cmd_index(args):
             TagFuncs.tag2url(tag), doc_list,
             header="Documents with '%s' tag" % tag
         )
+
+    basedir = os.path.dirname(__file__)
+    shutil.copyfile(basedir + "/style.css", "index/style.css")
+    shutil.copyfile(basedir + "/tags.css", "index/tags.css")
 
 
 def __main__():
