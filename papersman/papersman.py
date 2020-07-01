@@ -24,6 +24,7 @@
 
 import ubinascii
 import uhashlib
+import ure
 import argparse
 import os
 import os.path
@@ -103,6 +104,19 @@ def cmd_add(args):
 
         d["name"] = fname
         d["md5"] = hsh
+        # If fname starts with date
+        m = ure.match(r"[0-9]+", fname)
+        if m and len(m.group(0)) in (4, 6, 8):
+            s = m.group(0)
+            date = s[:4]
+            s = s[4:]
+            if s:
+                date += "-" + s[:2]
+                s = s[2:]
+            if s:
+                date += "-" + s[:2]
+                s = s[2:]
+            d["pubdate"] = date
 
         with open(meta_fname, "w") as metaf:
             yaml.dump(d, metaf, sort=True)
