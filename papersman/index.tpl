@@ -12,7 +12,7 @@
 {% endif %}
 
 {% for d in doc_list %}
-<p><a href="{{relpath}}/{{ d["name"] }}">{{ d["name"] }}</a><br/>
+<p><a href="{{relpath}}/{{ d["path"] }}">{{ d["name"] }}</a><br/>
 {% for t in d["tags"] %}
 <a class="tag tag-{{ F.tag2id(t) }}" href="{{relpath}}/{{ F.tag2url(t) }}">{{ t }}</a>
 {% endfor %}
