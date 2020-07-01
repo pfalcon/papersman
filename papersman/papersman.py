@@ -133,6 +133,8 @@ def cmd_index(args):
         print(metaf)
         with open(metaf) as f:
             d = yaml.safe_load(f)
+        path = os.path.dirname(metaf)
+        d["path"] = path + "/" + d["name"]
         doc_list.append(d)
         for tag in d["tags"]:
             tagmap[tag].append(d)
