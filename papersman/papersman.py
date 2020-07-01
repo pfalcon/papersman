@@ -76,6 +76,7 @@ class TagFuncs:
 def write_index(fname, doc_list, **extra):
     tmpl = tmpl_loader.load("index.tpl")
     relpath = ".." if "/" in fname else "."
+    doc_list.sort(key=lambda d: d.get("pubdate", "_"))
     with open(fname, "w") as outf:
         for x in tmpl(TagFuncs, doc_list, relpath, extra):
             outf.write(x)
