@@ -1,0 +1,17 @@
+/* This file is a part of papersman electronic document manager,
+   https://github.com/pfalcon/papersman , written by Paul Sokolovsky. */
+
+.tag {
+    display: inline-block;
+    border-radius: 8px;
+    padding: 2px 7px;
+    margin: 1px;
+    font-size: 80%;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-decoration: none;
+
+    /* Default tag colors, specific tags should override them in tags.css. */
+    background-color: #ffe050;
+    color: black;
+}
