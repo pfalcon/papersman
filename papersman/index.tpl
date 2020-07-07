@@ -11,6 +11,14 @@
 <h1>{{ extra["header"] }}</h1>
 {% endif %}
 
+{% if "tagmap" in extra %}
+<div class="tags-index">
+{% for t, docs in sorted(extra["tagmap"].items()) %}
+<a class="tag tag-{{ F.tag2id(t) }}" href="{{relpath}}/{{ F.tag2url(t) }}">{{ t }}&nbsp;({{ len(docs) }})</a><br/>
+{% endfor %}
+</div>
+{% endif %}
+
 {% for d in doc_list %}
 <p><a href="{{relpath}}/{{ d["path"] }}">{{ d["name"] }}</a><br/>
 {% for t in d["tags"] %}
