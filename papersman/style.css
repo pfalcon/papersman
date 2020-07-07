@@ -15,3 +15,7 @@
     background-color: #ffe050;
     color: black;
 }
+
+.tags-index {
+    column-width: 10em;
+}
