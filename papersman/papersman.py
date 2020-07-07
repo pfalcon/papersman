@@ -139,7 +139,7 @@ def cmd_index(args):
         for tag in d["tags"]:
             tagmap[tag].append(d)
 
-    write_index("index.html", doc_list)
+    write_index("index.html", doc_list, tagmap=tagmap)
 
     try:
         os.makedirs("index")
