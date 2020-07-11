@@ -74,6 +74,16 @@ class TagFuncs:
     def tag2url(tag):
         return "index/%s.html" % TagFuncs.tag2id(tag)
 
+    def tag2classes(tag):
+        classes = []
+        while True:
+            classes.append("tag-" + TagFuncs.tag2id(tag))
+            super_tag = tag.rsplit(":", 1)[0]
+            if super_tag == tag:
+                break
+            tag = super_tag
+        return " ".join(classes)
+
 
 def write_index(fname, doc_list, **extra):
     tmpl = tmpl_loader.load("index.tpl")
