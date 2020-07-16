@@ -145,6 +145,8 @@ def cmd_index(args):
             d = yaml.safe_load(f)
         path = os.path.dirname(metaf)
         d["path"] = path + "/" + d["name"]
+        for a in d.get("authors", ()):
+            d["tags"].append("author:" + a)
         doc_list.append(d)
         for tag in d["tags"]:
             tagmap[tag].append(d)
