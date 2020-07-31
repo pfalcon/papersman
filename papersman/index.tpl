@@ -20,6 +20,7 @@
 {% endif %}
 
 {% for d in doc_list %}
+<a name="{{ d["md5"] }}" />
 <p><a href="{{relpath}}/{{ d["path"] }}">{{ d["name"] }}</a><br/>
 {% for t in d["tags"] %}
 <a class="tag {{ F.tag2classes(t) }}" href="{{relpath}}/{{ F.tag2url(t) }}">{{ t }}</a>
