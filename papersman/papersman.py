@@ -138,6 +138,7 @@ def cmd_add(args):
 def cmd_index(args):
     doc_list = []
     tagmap = defaultdict(list)
+    idmap = {}
 
     for metaf in glob.iglob("**/*.yaml", recursive=True):
         print(metaf)
@@ -150,8 +151,11 @@ def cmd_index(args):
         doc_list.append(d)
         for tag in d["tags"]:
             tagmap[tag].append(d)
+        idmap[d["md5"]] = d
+        for docid in d.get("ids", ()):
+            idmap[docid] = d
 
-    write_index("index.html", doc_list, tagmap=tagmap)
+    write_index("index.html", doc_list, tagmap=tagmap, idmap=idmap)
 
     try:
         os.makedirs("index")
@@ -160,7 +164,8 @@ def cmd_index(args):
     for tag, doc_list in tagmap.items():
         write_index(
             TagFuncs.tag2url(tag), doc_list,
-            header="Documents with '%s' tag" % tag
+            header="Documents with '%s' tag" % tag,
+            idmap=idmap
         )
 
     basedir = os.path.dirname(__file__)
