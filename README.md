@@ -7,16 +7,16 @@ documents, papers, etc. It's based on the following ideas:
 1. Primary way to store document (meta)information is in human-readable
    structured format (subset of YAML), contained in files side-by-side
    with actual documents. Currently, `papersman` doesn't use any database.
-   It may come as a way to cache metadata at later (much later) time, but
+   It may come as a way to *cache* metadata at later (much later) time, but
    on a typical modern system, just scanning YAML files should scale well
-   to a few thousand of documents, which should be well enough for a
+   to a few thousands of documents, which should be well enough for a
    personal collection.
 2. Based on the above, the primary way to check and update metadata is
    with your text editor. `papersman` provides (or will provide) support
    commands for actions which aren't convenient/practical to do manually
    (e.g., rename a tag across all documents).
 3. `papersman` uses hash of file contents to identify a file. This will
-   allow to keep (or restore) document-metadata association across file
+   allow to keep (or restore) document/metadata association across file
    rename of the original document.
 4. For more advanced UI needs, `papersman` uses web browser as a frontend.
    And currently, it just generates static HTML files for per-tag document
