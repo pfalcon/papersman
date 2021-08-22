@@ -25,6 +25,17 @@
 {% for t in d["tags"] %}
 <a class="tag {{ F.tag2classes(t) }}" href="{{relpath}}/{{ F.tag2url(t) }}">{{ t }}</a>
 {% endfor %}
+
+{% if "cites" in d %}
+<p class="annot">Cites:
+<ul class="annot">
+{% for citeid in d["cites"] %}
+<li><a href="{{relpath}}/index.html#{{ extra["idmap"][citeid]["md5"] }}">{{ extra["idmap"][citeid]["name"] }}</a>
+{% endfor %}
+</ul>
+</p>
+{% endif %}
+
 </p>
 
 {% endfor %}
