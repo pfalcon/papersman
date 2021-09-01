@@ -1,6 +1,10 @@
 from . import papersman
 
 
+# Preload template for strict mode.
+papersman.tmpl_loader.load("index.tpl")
+
+
 def __main__():
     papersman.__main__()
 
