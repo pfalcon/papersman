@@ -1,3 +1,4 @@
+#-X strict
 from . import papersman
 
 
