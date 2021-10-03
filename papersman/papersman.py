@@ -35,7 +35,7 @@ from collections import defaultdict
 from pprint import pprint
 
 import yaml
-from utemplate.source import Loader
+from utemplate.recompile import Loader
 
 
 tmpl_loader = Loader(__name__.split(".", 1)[0], ".")
