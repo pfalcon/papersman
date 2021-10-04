@@ -36,6 +36,16 @@
 </p>
 {% endif %}
 
+{% if "notes" in d %}
+<p class="annot">Notes:
+<ul class="annot">
+{% for note in d["notes"] %}
+<li>{{ note }}
+{% endfor %}
+</ul>
+</p>
+{% endif %}
+
 </p>
 
 {% endfor %}
